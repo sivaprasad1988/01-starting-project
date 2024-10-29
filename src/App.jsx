@@ -1,4 +1,6 @@
 import reactImg from "./assets/react-core-concepts.png";
+import componentsImage from "./assets/components.png";
+import { CORE_CONCEPTS } from "./data";
 const reactDescriptions = ["Fundamental", "Crucial", "Core", "Crux"];
 
 function genRandomInt(max) {
@@ -18,13 +20,31 @@ function Header() {
     </header>
   );
 }
-
+function CoreComponents(props) {
+  return (
+    <li>
+      <img src={props.image} alt="" />
+      <h3>{props.title}</h3>
+      <p>{props.description}</p>
+    </li>
+  );
+}
 function App() {
+  console.log(CORE_CONCEPTS);
   return (
     <div>
       <Header />
+
       <main>
-        <h2>Time to get started!</h2>
+        <section id="core-concepts">
+          <h2>Time to get started!</h2>
+          <ul>
+            <CoreComponents {...CORE_CONCEPTS[0]} />
+            <CoreComponents {...CORE_CONCEPTS[1]} />
+            <CoreComponents {...CORE_CONCEPTS[2]} />
+            <CoreComponents {...CORE_CONCEPTS[3]} />
+          </ul>
+        </section>
       </main>
     </div>
   );
